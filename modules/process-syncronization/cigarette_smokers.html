@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link href="css/cigarette_smokers.css" rel="stylesheet" />
+	<script type="text/javascript" src="../Index/js/scrolloverflow.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<script src="../Index/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="../Index/css/bootswatch.css" />
+   	<script type="text/javascript" src="../Index/js/jquery.fullPage.js"></script>
+    <script type="text/javascript">
+    	$(document).ready(function() {
+    		$('#fullpage').fullpage({
+    			sectionsColor: ['#00000'],
+    			anchors: ['anime'],
+    			menu: '#menu',
+    			easingcss3: 'cubic-bezier(0.175, 0.885, 0.320, 1.275)'
+    		});
+    	});
+      </script>
+	
+</head>
+
+<body>
+
+    <br>
+    <div id="fullpage">
+		<div class="section " id="section0">
+			<div class="container">
+		        <div class="jumbotron">
+		            <h1 class="display-3">Simulation of Cigarette Smokers Problem</h1>
+		            <p class="lead">A concurrency problem in computer science</p>
+		            <hr class="my-4">
+		            <p>Consider a system with three smoker processes and one agent process. One of the smoker processes has paper, another has tobacco, and the third has matches. The agent places two of the ingredients on the table. The smoker who has the remaining ingredient then makes and smoke a cigarette, signaling the agent on completion. The agent then puts out another two of the three ingredients, and the cycle repeats.</p>
+		            <p class="lead">
+		              <a class="btn btn-success" href="https://en.wikipedia.org/wiki/Cigarette_smokers_problem#:~:text=The%20cigarette%20smokers%20problem%20is,be%20justified%20by%20practical%20considerations.%22" role="button">Wiki</a>
+		            </p>
+		            <p class="lead">
+		              <a class="btn btn-success" href="cigarette_smokers.html#anim" role="button">Play</a>
+		            </p>
+		        </div>
+	        <br>
+	    	</div>
+		</div>
+		<div class="section" id="section1">
+			<div class="container" id="anim">
+				<img id="table" src="includes/table.jpg">
+				<button type="button" class="next" onclick="simulate()">Next</button>
+
+				<img id="smoker1" src="includes/smoker1.jpg">
+				<img id="smoker2" src="includes/smoker2.jpg">
+				<img id="smoker3" src="includes/smoker3.jpg">
+				<img id="non-smoker" src="includes/non_smoker.jpg">
+
+				<div id="s1">Smoker 1</div>
+				<div id="s2">Smoker 2</div>
+				<div id="s3">Smoker 3</div>
+				<div id="ns">Agent</div>
+
+				<div id="t">Tabocco</div>
+				<div id="p">Papers</div>
+				<div id="m">Matches</div>
+				<div id="su1" align="middle"></div>
+				<div id="su2" align="middle"></div>
+
+				<div id="random">Random numbers generated : 0 0</div>
+				<div id="smoke" align="middle">Smoker 0 smoking</div>
+
+				<p id="ph1">Smoker 1 has tobacco</p>
+				<p id="ph2">Smoker 2 has papers</p>
+				<p id="ph3">Smoker 3 has matches</p>
+				<p id="ph4">Agent supplies - </p>
+			</div>
+		</div>
+	
+	<script>
+		
+		var g1=0, g2=0;
+		function simulate()
+		{
+			while(1)
+			{
+				g1 = Math.floor((Math.random() * 3) + 1);
+				g2 = Math.floor((Math.random() * 3) + 1);
+				if(g1!=g2)
+					break;
+			}
+			
+			document.getElementById("random").innerHTML = "Random numbers generated : "+g1+" "+g2;
+			if((g1==1 && g2==2) || (g1==2 && g2==1))
+			{
+				document.getElementById("smoke").innerHTML = "Smoker 3 smoking";
+				document.getElementById("su1").innerHTML = "Tobacco";
+				document.getElementById("su2").innerHTML = "Papers";
+				document.getElementById("ph4").innerHTML = "Agent supplies - Tobacco and Papers";
+			}
+			else if((g1==2 && g2==3) || (g1==3 && g2==2))
+			{
+				document.getElementById("smoke").innerHTML = "Smoker 1 smoking";
+				document.getElementById("su1").innerHTML = "Papers";
+				document.getElementById("su2").innerHTML = "Matches";
+				document.getElementById("ph4").innerHTML = "Agent supplies - Papers and Matches";
+			}
+			else if((g1==1 && g2==3) || (g1==3 && g2==1))
+			{
+				document.getElementById("smoke").innerHTML = "Smoker 2 smoking";
+				document.getElementById("su1").innerHTML = "Tobacco";
+				document.getElementById("su2").innerHTML = "Matches";
+				document.getElementById("ph4").innerHTML = "Agent supplies - Tobacco and Matches";
+			}
+		
+		}
+		
+	</script>
+	
+</body>
+
+</html>

@@ -1,0 +1,1508 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+
+  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="../../../../assets/img/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/img/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/img/favicons/favicon-16x16.png">
+  <link rel="manifest" href="../../assets/img/favicons/site.webmanifest">
+  <link rel="mask-icon" href="../../assets/img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="../../assets/img/favicons/favicon.ico">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-config" content="../../assets/img/favicons/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../../assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="../../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="../../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="./../../assets/css/style.css" rel="stylesheet">
+
+  <!-- EXTRA LINKS -->
+
+  <link rel="stylesheet" href="./bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  <!-- =======================================================
+  * Template Name: Vesperr - v4.7.0
+  * Template URL: https://bootstrapmade.com/vesperr-free-bootstrap-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+
+  <script src="https://cdn.zingchart.com/zingchart.min.js"></script>
+  <script> zingchart.MODULESDIR = "https://cdn.zingchart.com/modules/";
+    ZC.LICENSE = ["569d52cefae586f634c54f86dc99e6a9", "ee6b7db5b51705a13dc2339db3edaf6d"];</script>
+
+  <!-- SCRIPT FOR THE PAGE-->
+  <title>Disk Scheduling</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+
+<style>
+  .tdm-abc {
+    display: block;
+
+  }
+
+  .tdm-hide {
+    display: none;
+  }
+
+  .tdm-heading {
+    color: #5CDB95;
+    margin-left: 34%;
+    font-size: 33px;
+  }
+
+  .tdm-choices {
+    background-color: #19181a;
+    color: white;
+    font-weight: bold;
+  }
+
+  .tdm-button {
+    width: 200px;
+    height: 50px;
+    border: solid 2px #282626;
+    background-color: #282626;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    font-family: 'PT Sans', sans-serif;
+    font-size: 18px;
+  }
+
+  .tdm-footer {
+    margin-left: 30%;
+  }
+
+  .button {
+    background-color: #4CAF50;
+    /* Green */
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    -webkit-transition-duration: 0.4s;
+    /* Safari */
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+
+  .button1 {
+    background-color: white;
+    color: #05386b;
+    border: 2px solid #DC143C;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 2px 2px;
+    cursor: pointer;
+  }
+
+  .button1:hover {
+    background-color: #DC143C;
+    color: white;
+  }
+
+  .button2 {
+    background-color: white;
+    color: #05386b;
+    border: 2px solid #008080;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+
+  .button2:hover {
+    background-color: #008080;
+    color: white;
+  }
+
+  .button3 {
+    background-color: white;
+    color: #05386b;
+    border: 2px solid orange;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+
+  .button3:hover {
+    background-color: orange;
+    color: white;
+  }
+
+  .button4 {
+    background-color: white;
+    color: #05386b;
+    border: 2px solid #000080;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+
+  .button4:hover {
+    background-color: #000080;
+    color: white;
+  }
+
+  .button5 {
+    background-color: white;
+    color: #05386b;
+    border: 2px solid #003300;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+
+  .button5:hover {
+    background-color: #003300;
+    color: white;
+  }
+
+  .button6 {
+    background-color: white;
+    color: #05386b;
+    border: 2px solid #663300;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+
+  .button6:hover {
+    background-color: #663300;
+    color: white;
+  }
+
+
+  .button-checked1 {
+    background-color: #DC143C;
+    color: white;
+    border: 2px solid #DC143C;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+
+  .button-checked2 {
+    background-color: #008080;
+    color: white;
+    border: 2px solid #008080;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+
+  .button-checked4 {
+    background-color: #000080;
+    color: white;
+    border: 2px solid #000080;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+
+  .button-checked3 {
+    background-color: orange;
+    color: white;
+    border: 2px solid orange;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+
+  .button-checked5 {
+    background-color: #003300;
+    color: white;
+    border: 2px solid #003300;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+
+  .button-checked6 {
+    background-color: #663300;
+    color: white;
+    border: 2px solid #663300;
+    padding: 16px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+
+  #tdm-input {
+    font-size: 20px;
+    width: 120px;
+    height: 40px;
+    border: solid 2px #282626;
+    border-radius: 5px;
+  }
+
+  .tdm-head {
+    width: 150px;
+    height: 50px;
+    border: solid 2px #282626;
+    border-bottom: solid 2px #282626;
+    border-radius: 5px;
+  }
+
+  body {
+    font-family: 'PT Sans', sans-serif;
+    animation-name: FadeOut;
+    animation-duration: 2s;
+  }
+
+  h1 {
+    font-family: "impact", PT Sans, serif;
+    font-size: 60px;
+  }
+
+  h2 {
+    font-family: "impact", PT Sans, serif;
+    font-size: 40px;
+  }
+
+  h3 {
+    font-family: PT Sans, serif;
+    font-size: 30px;
+  }
+
+  .options button {
+    font-family: 'PT Sans', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  @keyframes FadeOut {
+    0% {
+      /* position: absolute; */
+      opacity: 0;
+    }
+
+    75% {
+      /* position: absolute; */
+      opacity: 0.75;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+</style>
+
+<script>
+
+  var x = 2, max_val;
+  function myFunction() {
+    x = x + 1;
+    var h1 = document.getElementsByTagName("input")[x];
+    var att = document.createAttribute("class");
+    att.value = "tdm-abc";
+    h1.setAttributeNode(att);
+  }
+
+
+  var fcfs = 0, sstf = 0, scan = 0, cscan = 0, look = 0, clook = 0;
+
+  function optchecked(option) {
+    if (option == 0) {
+      fcfs = fcfs + 1;
+      //now change the background color to say that it is selected
+      if (fcfs % 2 == 1) {
+        var f1 = document.getElementsByTagName("button")[0];
+        var att = document.createAttribute("class");
+        att.value = "button-checked1";
+        f1.setAttributeNode(att);
+      }
+
+      if (fcfs % 2 == 0) {
+        var f1 = document.getElementsByTagName("button")[0];
+        var att = document.createAttribute("class");
+        att.value = "button1";
+        f1.setAttributeNode(att);
+      }
+    }
+
+    if (option == 1) {
+      sstf = sstf + 1;
+      if (sstf % 2 == 1) {
+        var f1 = document.getElementsByTagName("button")[1];
+        var att = document.createAttribute("class");
+
+        att.value = "button-checked2";
+        f1.setAttributeNode(att);
+      }
+
+      if (sstf % 2 == 0) {
+        var f1 = document.getElementsByTagName("button")[1];
+        var att = document.createAttribute("class");
+
+        att.value = "button2";
+        f1.setAttributeNode(att);
+      }
+    }
+
+    if (option == 2) {
+      scan += 1;
+      if (scan % 2 == 1) {
+        var f1 = document.getElementsByTagName("button")[2];
+        var att = document.createAttribute("class");
+
+        att.value = "button-checked3";
+        f1.setAttributeNode(att);
+      }
+
+      if (scan % 2 == 0) {
+        var f1 = document.getElementsByTagName("button")[2];
+        var att = document.createAttribute("class");
+
+        att.value = "button3";
+        f1.setAttributeNode(att);
+      }
+    }
+
+    if (option == 3) {
+      cscan += 1;
+      if (cscan % 2 == 1) {
+        var f1 = document.getElementsByTagName("button")[3];
+        var att = document.createAttribute("class");
+
+        att.value = "button-checked4";
+        f1.setAttributeNode(att);
+      }
+
+      if (cscan % 2 == 0) {
+        var f1 = document.getElementsByTagName("button")[3];
+        var att = document.createAttribute("class");
+
+        att.value = "button4";
+        f1.setAttributeNode(att);
+      }
+    }
+
+    if (option == 4) {
+      look += 1;
+      if (look % 2 == 1) {
+        var f1 = document.getElementsByTagName("button")[4];
+        var att = document.createAttribute("class");
+
+        att.value = "button-checked5";
+        f1.setAttributeNode(att);
+      }
+
+      if (look % 2 == 0) {
+        var f1 = document.getElementsByTagName("button")[4];
+        var att = document.createAttribute("class");
+
+        att.value = "button5";
+        f1.setAttributeNode(att);
+      }
+    }
+
+    if (option == 5) {
+      clook += 1;
+      if (clook % 2 == 1) {
+        var f1 = document.getElementsByTagName("button")[5];
+        var att = document.createAttribute("class");
+
+        att.value = "button-checked6";
+        f1.setAttributeNode(att);
+      }
+
+      if (clook % 2 == 0) {
+        var f1 = document.getElementsByTagName("button")[5];
+        var att = document.createAttribute("class");
+
+        att.value = "button6";
+        f1.setAttributeNode(att);
+      }
+    }
+
+  }
+
+  function calculate() {
+    var min = parseInt(document.getElementsByTagName("input")[1].value);
+    var max = parseInt(document.getElementsByTagName("input")[2].value);
+
+    if (max <= min) {
+      alert("invalid cylinder numbers");
+      return;
+    }
+
+    var fcfsv = 0, sstfv = 0, scanv = 0, cscanv = 0, lookv = 0, clookv = 0;
+
+    if (fcfs % 2 == 1) {
+      fcfsv = calculate_fcfs();
+      if (fcfsv == -10)
+        return;
+    }
+
+    if (sstf % 2 == 1) {
+      sstfv = calculate_sstf();
+      if (sstfv == -10)
+        return;
+    }
+
+    if (scan % 2 == 1) {
+      scanv = calculate_scan();
+      if (scanv == -10)
+        return;
+    }
+
+    if (cscan % 2 == 1) {
+      cscanv = calculate_cscan();
+      if (cscanv == -10)
+        return;
+    }
+
+    if (look % 2 == 1) {
+      lookv = calculate_look();
+      if (lookv == -10)
+        return;
+    }
+
+    if (clook % 2 == 1) {
+      clookv = calculate_clook();
+      if (clookv == -10)
+        return;
+    }
+    var f = document.getElementById("s_graph");
+    var att = document.createAttribute("class");
+    att.value = "s_show";
+    f.setAttributeNode(att);
+
+    show_graph(fcfsv, sstfv, scanv, cscanv, lookv, clookv);
+  }
+
+  function show_graph_section() {
+    var f = document.getElementById("graph_section");
+    var att = document.createAttribute("class");
+
+    att.value = "s_show";		//s_show is not defined
+    f.setAttributeNode(att);
+  }
+  var dp_fcfs = []; var dp_sstf = []; var dp_scan = []; var dp_cscan = []; var dp_look = []; var dp_clook = [];
+  var fcfs_values = []; var sstf_values = []; var scan_values = []; var cscan_values = []; var look_values = []; var clook_values = [];
+
+  function calculate_fcfs() {
+
+    var i;
+    var sum = 0;
+    var diff;
+    var z;
+    var y_i = -1;
+
+    var head = parseInt(document.getElementsByTagName("input")[0].value);
+    var max = parseInt(document.getElementsByTagName("input")[2].value);
+    var min = parseInt(document.getElementsByTagName("input")[1].value);
+
+    if (head > max) {
+      alert("Head value is larger than last cylinder number");
+      return -10;
+    }
+
+    if (head < min) {
+      alert("Head value is smaller than first cylinder number");
+      return -10;
+    }
+
+    /*dp_fcfs.push({x:head , y:0});*/
+    y_i++;
+    //dp_fcfs.push([head,y_i]);
+    fcfs_values.push(head);
+    for (i = 3; i <= x; ++i) {
+      y_i++;
+      z = parseInt(document.getElementsByTagName("input")[i].value);
+      if (z > max) {
+        alert("input " + z + " is greater than the last cylinder");
+        return -10;
+      }
+
+      if (z < min) {
+        alert("input " + z + " is smaller than the first cylinder");
+        return -10;
+      }
+      //dp_fcfs.push([z,i-2]);
+      fcfs_values.push(z);
+      diff = head - z;
+      if (diff < 0) {
+        diff = diff * (-1);
+      }
+      sum = sum + diff;
+      head = z;
+    }
+
+    //add values to the datapoints_fcfs
+    allocate_fcfs();
+    return sum;
+  }
+
+
+  function calculate_sstf() {
+    var in_arr = [];
+    var diff;
+    var sum = 0;
+    var y_i = 0;
+
+    var head = parseInt(document.getElementsByTagName("input")[0].value);
+    var max = parseInt(document.getElementsByTagName("input")[2].value);
+    var min = parseInt(document.getElementsByTagName("input")[1].value);
+    if (head > max) {
+      alert("Head value is larger than last cylinder number");
+      return -10;
+    }
+
+    if (head < min) {
+      alert("Head value is smaller than first cylinder number");
+      return -10;
+    }
+    //dp_sstf.push([head,0]);
+    sstf_values.push(head);
+    in_arr.push(head);
+    for (var i = 3; i <= x; ++i) {
+      var z = parseInt(document.getElementsByTagName("input")[i].value);
+      if (z > max) {
+        alert("input " + z + " is greater than the last cylinder");
+        return -10;
+      }
+
+      if (z < min) {
+        alert("input " + z + " is smaller than the first cylinder");
+        return -10;
+      }
+      in_arr.push(z);
+    }
+    var min = 9999;
+    var done = [];		//a new empty array
+    var flag;
+    //make done as 0
+    for (i = 0; i < x - 2; ++i)		//-2 because there are 2 checkboxes , do -8 if min and max are included
+      done.push(0);
+
+
+    for (var j = 1; j <= x - 2; ++j) {
+      y_i++;
+      for (var i = 1; i <= x - 2; ++i) {
+        diff = head - in_arr[i];
+
+        if (diff < 0)
+          diff = diff * (-1);
+
+        if ((diff < min) && (done[i - 1] == 0)) {
+          min = diff;
+          flag = i;
+          //here we push the variables for the graph
+
+        }
+      }
+      sum = sum + min;
+      head = in_arr[flag];
+      //dp_sstf.push([in_arr[flag],y_i]);
+      sstf_values.push(in_arr[flag]);
+      done[flag - 1] = 1;
+      min = 9999;
+    }
+    allocate_sstf();
+    return sum;
+  }
+
+  function calculate_scan() {
+    var in_arr = [];
+    var sum = 0;
+    var y_i = 0;
+
+    var head = parseInt(document.getElementsByTagName("input")[0].value);
+    var max = parseInt(document.getElementsByTagName("input")[2].value);
+    var min = parseInt(document.getElementsByTagName("input")[1].value);
+    if (head > max) {
+      alert("Head value is larger than last cylinder number");
+      return -10;
+    }
+
+    if (head < min) {
+      alert("scan head is smaller than first cylinder number");
+      return -10;
+    }
+    scan_values.push(head);
+
+    var max = document.getElementsByTagName("input")[2].value;
+
+    for (var i = 3; i <= x; ++i) {
+      var z = parseInt(document.getElementsByTagName("input")[i].value);
+      if (z > max) {
+        alert("input " + z + " is greater than the last cylinder");
+        return -10;
+      }
+
+      if (z < min) {
+        alert("input " + z + " is smaller than the first cylinder");
+        return -10;
+      }
+      in_arr.push(z);
+    }
+
+    //sort the inputs
+    in_arr.sort(function (a, b) { return a - b });
+
+
+
+    var temp;
+    var i, j, flag;
+
+    for (i = in_arr.length - 1; i >= 0; --i) {
+      var p = parseInt(in_arr[i]);
+      if (p < head) {
+        flag = i + 1;
+        break;
+      }
+    }
+    if ((head - in_arr[flag - 1]) >= (in_arr[flag] - head)) {
+      sum = sum + (max - head);
+      var p_i;
+      for (j = flag; j < in_arr.length; ++j) {
+        y_i++;
+        p_i = parseInt(in_arr[j]);
+        scan_values.push(p_i);
+      }
+
+      y_i++;
+      scan_values.push(max);
+
+      for (j = flag - 1; j >= 0; --j) {
+        y_i++;
+        p_i = parseInt(in_arr[j]);
+        scan_values.push(p_i);
+      }
+
+      var int = parseInt(in_arr[0]);
+      sum = sum + (max - int);
+
+      allocate_scan();
+      return sum;
+    }
+
+    else {
+      sum = sum + (head - min);
+      var p_i;
+      for (j = flag - 1; j >= 0; j--) {
+        y_i++;
+        p_i = parseInt(in_arr[j]);
+        scan_values.push(p_i);
+      }
+      y_i++;
+      scan_values.push(min);
+      for (j = flag; j < in_arr.length; ++j) {
+        y_i++;
+        p_i = parseInt(in_arr[j]);
+        scan_values.push(p_i);
+      }
+      var int = parseInt(in_arr[in_arr.length - 1]);
+      sum = sum + (int - min);
+      allocate_scan();
+      return sum;
+    }
+  }
+
+  function calculate_cscan() {
+    var in_arr = [];
+    var sum = 0;
+    var y_i = 0;
+    var head = parseInt(document.getElementsByTagName("input")[0].value);
+    var max = parseInt(document.getElementsByTagName("input")[2].value);
+    var min = parseInt(document.getElementsByTagName("input")[1].value);
+    if (head > max) {
+      alert("Head value is larger than last cylinder number");
+      return -10;
+    }
+
+    if (head < min) {
+      alert("Head value is smaller than first cylinder number");
+      return -10;
+    }
+    cscan_values.push(head);
+
+    var max = document.getElementsByTagName("input")[2].value;
+
+    for (var i = 3; i <= x; ++i) {
+      var z = parseInt(document.getElementsByTagName("input")[i].value);
+      if (z > max) {
+        alert("input " + z + " is greater than the last cylinder");
+        return -10;
+      }
+
+      if (z < min) {
+        alert("input " + z + " is smaller than the first cylinder");
+        return -10;
+      }
+      in_arr.push(z);
+    }
+
+    //sort the inputs
+    in_arr.sort(function (a, b) { return a - b });
+
+    var temp;
+    var i, j, flag;
+
+    for (i = in_arr.length - 1; i >= 0; --i) {
+      var p = parseInt(in_arr[i]);
+      if (p < head) {
+        flag = i + 1;
+        break;
+      }
+    }
+
+    if ((head - in_arr[flag - 1]) >= (in_arr[flag] - head)) {
+      sum = sum + (max - head);
+      var p_i;
+      for (j = flag; j < in_arr.length; ++j) {
+        y_i++;
+        p_i = parseInt(in_arr[j]);
+        cscan_values.push(p_i);
+      }
+      cscan_values.push(max);
+      for (j = 0; j <= flag - 1; ++j) {
+        y_i++;
+        p_i = parseInt(in_arr[j]);
+        cscan_values.push(p_i);
+      }
+
+      var int = parseInt(in_arr[flag - 1]);
+      sum = sum + (int - min);
+
+      sum += (max - min)
+
+      allocate_cscan();
+      return sum;
+    }
+    else {
+      sum = sum + (head - min);
+      var p_i;
+      for (j = flag - 1; j >= 0; --j) {
+        y_i++;
+        p_i = parseInt(in_arr[j]);
+        cscan_values.push(p_i);
+      }
+      cscan_values.push(min);
+      for (j = in_arr.length - 1; j >= flag; --j) {
+        y_i++;
+        p_i = parseInt(in_arr[j]);
+        cscan_values.push(p_i);
+      }
+
+      var int = parseInt(in_arr[flag]);
+      sum = sum + (max - int);
+
+      sum += (max - min)
+      allocate_cscan();
+      return sum ;
+    }
+  }
+
+  function calculate_look() {
+    var in_arr = [];
+    var sum = 0;
+    var y_i = 0;
+    var head = parseInt(document.getElementsByTagName("input")[0].value);
+    var max = parseInt(document.getElementsByTagName("input")[2].value);
+    var min = parseInt(document.getElementsByTagName("input")[1].value);
+    if (head > max) {
+      alert("Head value is larger than last cylinder number");
+      return -10;
+    }
+
+    if (head < min) {
+      alert("Head value is smaller than first cylinder number");
+      return -10;
+    }
+    look_values.push(head);
+    var max = document.getElementsByTagName("input")[2].value;
+
+    for (var i = 3; i <= x; ++i) {
+      var z = parseInt(document.getElementsByTagName("input")[i].value);
+      if (z > max) {
+        alert("input " + z + " is greater than the last cylinder");
+        return -10;
+      }
+
+      if (z < min) {
+        alert("input " + z + " is smaller than the first cylinder");
+        return -10;
+      }
+      in_arr.push(z);
+    }
+
+    //sort the inputs
+    in_arr.sort(function (a, b) { return a - b });
+    in_arr.sort(function (a, b) { return a - b });
+
+    var i, j, flag;
+    for (i = in_arr.length - 1; i >= 0; --i) {
+      var p = parseInt(in_arr[i]);
+      if (p < head) {
+        flag = i + 1;
+        break;
+      }
+    }
+
+    if ((head - in_arr[flag - 1]) >= (in_arr[flag] - head)) {
+
+      var p_i;
+      for (j = flag; j < in_arr.length; ++j) {
+        y_i++;
+        p_i = parseInt(in_arr[j]);
+        look_values.push(p_i);
+      }
+
+      for (j = flag - 1; j >= 0; --j) {
+        y_i++;
+        p_i = parseInt(in_arr[j]);
+        look_values.push(p_i);
+      }
+
+      var int = parseInt(in_arr[x - 3]);	//last element
+      sum = sum + (int - head);
+
+      var int = parseInt(in_arr[x - 3]);
+      var int2 = parseInt(in_arr[0]);
+      sum = sum + (int - int2);
+
+      allocate_look();
+      return sum;
+    }
+    else {
+      var p_i;
+      for (j = flag - 1; j >= 0; --j) {
+        y_i++;
+        p_i = parseInt(in_arr[j]);
+        look_values.push(p_i);
+      }
+      for (j = flag; j < in_arr.length; ++j) {
+        y_i++;
+        p_i = parseInt(in_arr[j]);
+        look_values.push(p_i);
+      }
+
+      var int = parseInt(in_arr[0]);	//last element
+      sum = sum + (head - int);
+
+      var int = parseInt(in_arr[0]);
+      var int2 = parseInt(in_arr[x - 3]);
+      sum = sum + (int2 - int);
+
+      allocate_look();
+      return sum;
+    }
+  }
+
+  function calculate_clook() {
+    var in_arr = [];
+    var sum = 0;
+    var y_i = 0;
+    var head = parseInt(document.getElementsByTagName("input")[0].value);
+    var max = parseInt(document.getElementsByTagName("input")[2].value);
+    var min = parseInt(document.getElementsByTagName("input")[1].value);
+    if (head > max) {
+      alert("clook head is larger than last cylinder number");
+      return -10;
+    }
+
+    if (head < min) {
+      alert("clook head is smaller than first cylinder number");
+      return -10;
+    }
+    clook_values.push(head);
+
+    var max = document.getElementsByTagName("input")[2].value;
+
+    for (var i = 3; i <= x; ++i) {
+      var z = parseInt(document.getElementsByTagName("input")[i].value);
+      if (z > max) {
+        alert("input " + z + " is greater than the last cylinder");
+        return -10;
+      }
+
+      if (z < min) {
+        alert("input " + z + " is smaller than the first cylinder");
+        return -10;
+      }
+      in_arr.push(z);
+    }
+
+    //sort the inputs
+    in_arr.sort(function (a, b) { return a - b });
+
+
+
+
+    var temp;
+    var i, j, flag;
+
+    for (i = in_arr.length - 1; i >= 0; --i) {
+      var p = parseInt(in_arr[i]);
+      if (p < head) {
+        flag = i + 1;
+        break;
+      }
+    }
+    if ((head - in_arr[flag - 1]) >= (in_arr[flag] - head)) {
+      var len = in_arr.length - 1;
+      var p = parseInt(in_arr[len]);
+      sum = sum + (p - head);
+      var p_i;
+      for (j = flag; j < in_arr.length; ++j) {
+        y_i++;
+        p_i = parseInt(in_arr[j]);
+        clook_values.push(p_i);
+      }
+
+      for (j = 0; j <= flag - 1; ++j) {
+        y_i++;
+        p_i = parseInt(in_arr[j]);
+        clook_values.push(p_i);
+      }
+
+      var int = parseInt(in_arr[flag - 1]);
+      var int2 = parseInt(in_arr[0]);
+      sum = sum + (int - int2);
+      
+      sum +=  (in_arr[in_arr.length - 1] - in_arr[0]);
+
+      allocate_clook();
+      return sum;
+    }
+    else {
+      var len = in_arr.length - 1;
+      var p = parseInt(in_arr[0]);
+      sum = sum + (head - p);
+      var p_i;
+      for (j = flag - 1; j >= 0; --j) {
+        y_i++;
+        p_i = parseInt(in_arr[j]);
+        clook_values.push(p_i);
+      }
+      for (j = len; j >= flag; --j) {
+        y_i++;
+        p_i = parseInt(in_arr[j]);
+        clook_values.push(p_i);
+      }
+
+      var int = parseInt(in_arr[len]);
+      var int2 = parseInt(in_arr[flag]);
+      sum = sum + (int - int2);
+      sum +=  (in_arr[in_arr.length - 1] - in_arr[0]);
+      allocate_clook();
+      return sum ;
+    }
+  }
+  window.onload = function () {
+    CanvasJS.addColorSet("myColors",
+      [//colorSet Array
+        "#DC143C",
+        "#008080",
+        "orange",
+        "#000080",
+        "#003300",
+        "#663300"
+      ]);
+  }
+
+  function show_graph(fcfs, sstf, scan, cscan, look, clook) {
+
+    var chart = new CanvasJS.Chart("chartContainer", {
+      title: {
+        text: "RESULTS OF DISK SCHEDULING ALGORITHMS"
+      },
+
+      data: [
+        {
+          // Change type to, "line", "splineArea", etc.
+          type: "column",
+          dataPoints: [
+            { label: "FCFS", y: fcfs },
+            { label: "SSTF", y: sstf },
+            { label: "SCAN", y: scan },
+            { label: "CSCAN", y: cscan },
+            { label: "LOOK", y: look },
+            { label: "CLOOK", y: clook }
+          ]
+        }
+      ],
+
+      axisY: {
+        title: "Total Head Movement"
+      },
+
+      animationEnabled: true,
+      animationDuration: 6000,
+      colorSet: "myColors"
+    });
+    chart.render();
+  }
+
+
+  //example of datapoints_fcfs:- 
+
+  function allocate_fcfs() {
+    var d = -1;
+    for (var i = 0; i < fcfs_values.length; ++i) {
+      d++;
+      var a = parseInt(fcfs_values[i]);
+      dp_fcfs.push([a, d]);
+    }
+
+  }
+
+  function allocate_sstf() {
+    var d = -1;
+    for (var i = 0; i < sstf_values.length; ++i) {
+      d++;
+      var a = parseInt(sstf_values[i]);
+      dp_sstf.push([a, d]);
+    }
+  }
+
+  function allocate_scan() {
+    var d = -1;
+    for (var i = 0; i < scan_values.length; ++i) {
+      d++;
+      var a = parseInt(scan_values[i]);
+      dp_scan.push([a, d]);
+    }
+  }
+
+  function allocate_cscan() {
+    var d = -1;
+    for (var i = 0; i < cscan_values.length; ++i) {
+      d++;
+      var a = parseInt(cscan_values[i]);
+      dp_cscan.push([a, d]);
+    }
+  }
+
+  function allocate_look() {
+    var d = -1;
+    for (var i = 0; i < look_values.length; ++i) {
+      d++;
+      var a = parseInt(look_values[i]);
+      dp_look.push([a, d]);
+    }
+  }
+
+  function allocate_clook() {
+    var d = -1;
+    for (var i = 0; i < clook_values.length; ++i) {
+      d++;
+      var a = parseInt(clook_values[i]);
+      dp_clook.push([a, d]);
+    }
+  }
+
+  var data_fcfs = {
+    values: dp_fcfs
+  };
+
+  var data_sstf = {
+    values: dp_sstf
+  };
+
+  var data_scan = {
+    values: dp_scan
+  };
+
+  var data_cscan = {
+    values: dp_cscan
+  };
+
+  var data_look = {
+    values: dp_look
+  };
+
+  var data_clook = {
+    values: dp_clook
+  };
+
+
+  function fcfsModal() {
+
+    var max_val = document.getElementsByTagName("input")[2].value;
+
+    zingchart.render({
+      id: "chartContainer_fcfs",
+      output: "svg",
+      height: 500,
+      width: "80%",
+      data: {
+        "type": "line",
+        "title": {
+          "text": "FCFS Header Movement"
+        },
+        "series": [
+          data_fcfs
+        ]
+      },
+
+      "scale-x": {
+        "title": {
+          "text": "Request Track Number"
+        }
+      },
+
+      "scale-y": {
+        "title": "Request Number"
+      }
+    });
+
+  }
+
+
+  function sstfModal() {
+    var max_val = document.getElementsByTagName("input")[2].value;
+    zingchart.render({
+      id: "chartContainer_sstf",
+      output: "svg",
+      height: 500,
+      width: "80%",
+      data: {
+        "type": "line",
+        "title": {
+          "text": "SSTF Header Movement"
+        },
+        "series": [
+          data_sstf
+        ]
+      }
+    });
+  }
+
+  function scanModal() {
+    var max_val = document.getElementsByTagName("input")[2].value;
+    zingchart.render({
+      id: "chartContainer_scan",
+      output: "svg",
+      height: 500,
+      width: "80%",
+      data: {
+        "type": "line",
+        "title": {
+          "text": "SCAN Header Movement"
+        },
+        "series": [
+          data_scan
+        ]
+      }
+    });
+  }
+
+  function cscanModal() {
+    var max_val = document.getElementsByTagName("input")[2].value;
+    zingchart.render({
+      id: "chartContainer_cscan",
+      output: "svg",
+      height: 500,
+      width: "80%",
+      data: {
+        "type": "line",
+        "title": {
+          "text": "CSCAN Header Movement"
+        },
+        "series": [
+          data_cscan
+        ]
+      }
+    });
+  }
+
+  function lookModal() {
+    var max_val = document.getElementsByTagName("input")[2].value;
+    zingchart.render({
+      id: "chartContainer_look",
+      output: "svg",
+      height: 500,
+      width: "80%",
+      data: {
+        "type": "line",
+        "title": {
+          "text": "LOOK Header Movement"
+        },
+        "series": [
+          data_look
+        ]
+      }
+    });
+  }
+
+  function clookModal() {
+    var max_val = document.getElementsByTagName("input")[2].value;
+    zingchart.render({
+      id: "chartContainer_clook",
+      output: "svg",
+      height: 500,
+      width: "80%",
+      data: {
+        "type": "line",
+        "title": {
+          "text": "CLOOK Header Movement"
+        },
+        "series": [
+          data_clook
+        ]
+      }
+    });
+
+  }
+</script>
+
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <div class="logo">
+        <h1><a href="index.html">OS Mini Project</a></h1>
+        <h3>Group 14</h3>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="../../assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto " href="/index.html">Home</a></li>
+
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs Section ======= -->
+    <section class="inner-page">
+      <div class="container">
+
+        <div id="bottom"></div>
+      </div>
+    </section>
+
+
+
+    <div class="options" align="center">
+      <h2 style="font-variant:small-caps;margin-left:5%"">Choose the algorithms</h2>
+        <button class=" button button1" onclick="optchecked(0)">F C F S</button>
+        <button class="button button2" onclick="optchecked(1)">S S T F</button>
+        <button class="button button3" onclick="optchecked(2)">S C A N</button>
+        <button class="button button4" onclick="optchecked(3)">C S C A N</button>
+        <button class="button button5" onclick="optchecked(4)">L O O K</button>
+        <button class="button button6" onclick="optchecked(5)">C L O O K</button>
+    </div>
+
+    <div style="color:black">
+      <div style="margin-top:5%;position:absolute;margin-left:5%;">
+        <h3 style="font-weight: bold"> Enter the following details</h3>
+        <div style="margin-top:8% ;position: absolute;width: 300px;font-size: 25px"><label>HEAD</label><input
+            class="tdm-head" type="number" min="0" style="margin-left: 10%"></div>
+        <br>
+        <h4 style="width: 1000px;margin-top: 20% ;margin-left:5%;position: absolute;font-size: 30px"> Enter the first
+          and
+          last cylinder number</h4>
+        <div style="margin-top:40% ;position: absolute;width: 300px;font-size: 25px"><label>FIRST</label><input
+            class="tdm-head" type="number" min="0" style="margin-left: 10%"></div>
+        <div style="margin-left:80%;margin-top:40% ;position: absolute;width: 300px;font-size: 25px">
+          <label>LAST</label><input class="tdm-head" type="number" min="0" style="margin-left: 10%">
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:30%;margin-left:5%;font-size: 25px">Enter requests (Maximum : 10 requests)
+      <button class="tdm-button" onclick="myFunction()" style="margin-left:10%;position: absolute;">Add Request</button>
+      <button class="tdm-button" onclick="calculate()" style="margin-left:35%;position:absolute;width: 300px"> Calculate
+        Head Movements </button>
+    </div>
+    <!--<button class="tdm-button" onclick="calculate()" style="margin-left:40%;position:absolute;margin-top:5%;"> Calculate </button>-->
+
+    <div style="margin-top: -5%;margin-left: 5% ">
+      <input id="tdm-input" class="tdm-hide" type="number" min="0"
+        style="position: absolute;margin-top:10%;left:0%;margin-left:5px;text-align: center">
+      <input class="tdm-hide" id="tdm-input" type="number" min="0"
+        style="position: absolute;margin-top:10%;left:9%;margin-left:15px;text-align: center">
+      <input class="tdm-hide" id="tdm-input" type="number" min="0"
+        style="position: absolute;margin-top:10%;left:19%;margin-left:15px;text-align: center">
+      <input class="tdm-hide" id="tdm-input" type="number" min="0"
+        style="position: absolute;margin-top:10%;left:29%;margin-left:15px;text-align: center">
+      <input class="tdm-hide" id="tdm-input" type="number" min="0"
+        style="position: absolute;margin-top:10%;left:39%;margin-left:15px;text-align: center">
+      <input class="tdm-hide" id="tdm-input" type="number" min="0"
+        style="position: absolute;margin-top:10%;left:49%;margin-left:15px;text-align: center">
+      <input class="tdm-hide" id="tdm-input" type="number" min="0"
+        style="position: absolute;margin-top:10%;left:59%;margin-left:15px;text-align: center">
+      <input class="tdm-hide" id="tdm-input" type="number" min="0"
+        style="position: absolute;margin-top:10%;left:69%;margin-left:15px;text-align: center">
+      <input class="tdm-hide" id="tdm-input" type="number" min="0"
+        style="position: absolute;margin-top:10%;left:79%;margin-left:15px;text-align: center">
+      <input class="tdm-hide" id="tdm-input" type="number" min="0"
+        style="position: absolute;margin-top:10%;left:89%;margin-left:15px;text-align: center">
+    </div>
+
+    <div class="tdm-footer">
+      <br><br>
+      <p id="output_fcfs"></p>
+      <p id="output_sstf"></p>
+      <p id="output_scan"></p>
+      <p id="output_cscan"></p>
+      <p id="output_look"></p>
+      <p id="output_clook"></p>
+    </div>
+    <p id="output"></p>
+    <div id="chartContainer" style="height: 300px; width: 60%;margin-left: 20%;border: solid 2px white;margin-top: 10%">
+    </div>
+
+    <div class="tdm-hide" id="s_graph">
+      <button class="tdm-button" onclick="show_graph_section()"
+        style="width: 260px;height:60px;margin-left: 5%;margin-top: 3%"> Show Header Movement</button>
+    </div>
+    <!-- modal buttons -->
+    <br><br>
+    <div class="tdm-hide" id="graph_section" align="center">
+      <h3 style="font-weight: bold"> HEADER MOVEMENT </h3>
+      <button onclick="fcfsModal()" class=" w3-button trigger-btn button1" data-toggle="modal"
+        style="font-weight: bold">FCFS</button>
+      <button onclick="sstfModal()" class=" w3-button trigger-btn button2" data-toggle="modal"
+        style="font-weight: bold">SSTF</button>
+      <button onclick="scanModal()" class=" w3-button trigger-btn button3" data-toggle="modal"
+        style="font-weight: bold">SCAN</button>
+      <button onclick="cscanModal()" class=" w3-button trigger-btn button4" data-toggle="modal"
+        style="font-weight: bold">CSCAN</button>
+      <button onclick="lookModal()" class=" w3-button trigger-btn button5" data-toggle="modal"
+        style="font-weight: bold">LOOK</button>
+      <button onclick="clookModal()" class=" w3-button trigger-btn button6" data-toggle="modal"
+        style="font-weight: bold">CLOOK</button>
+      <h4 style="font-weight: bold"> X-axis: Request Track Number : Y-axis: Request Number</h4>
+    </div>
+
+    <div id="chartContainer_fcfs"
+      style="height: 400px; width: 60%;margin-left: 20%;border: solid 2px white;margin-top: 5%"></div>
+    <div id="chartContainer_sstf"
+      style="height: 300px; width: 60%;margin-left: 20%;border: solid 2px white;margin-top: 5%"></div>
+    <div id="chartContainer_scan"
+      style="height: 300px; width: 60%;margin-left: 20%;border: solid 2px white;margin-top: 5%"></div>
+    <div id="chartContainer_cscan"
+      style="height: 300px; width: 60%;margin-left: 20%;border: solid 2px white;margin-top: 5%"></div>
+    <div id="chartContainer_look"
+      style="height: 300px; width: 60%;margin-left: 20%;border: solid 2px white;margin-top: 5%"></div>
+    <div id="chartContainer_clook"
+      style="height: 300px; width: 60%;margin-left: 20%;border: solid 2px white;margin-top: 5%"></div>
+
+    <p id="input_fcfs"></p>
+    <p id="input_sstf"></p>
+    <p id="input_scan"></p>
+    <p id="input_cscan"></p>
+    <p id="input_look"></p>
+    <p id="input_clook"></p>
+
+  </main><!-- End #main -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="../../assets/vendor/purecounter/purecounter.js"></script>
+  <script src="../../assets/vendor/aos/aos.js"></script>
+  <script src="../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../../assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="../../assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="../../assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="../../assets/js/main.js"></script>
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+  integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</html>

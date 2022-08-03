@@ -1,0 +1,747 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="../../../../assets/img/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/img/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/img/favicons/favicon-16x16.png">
+  <link rel="manifest" href="../../assets/img/favicons/site.webmanifest">
+  <link rel="mask-icon" href="../../assets/img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="../../assets/img/favicons/favicon.ico">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-config" content="../../assets/img/favicons/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../../assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="../../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="../../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="./../../assets/css/style.css" rel="stylesheet">
+
+  <!-- EXTRA LINKS -->
+
+  <link rel="stylesheet" href="./bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=PT+Sans" rel="stylesheet">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+  <!-- =======================================================
+  * Template Name: Vesperr - v4.7.0
+  * Template URL: https://bootstrapmade.com/vesperr-free-bootstrap-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+
+  <!-- SCRIPT FOR THE PAGE-->
+  <title>Banker's Algorithm</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+</head>
+
+<script>
+
+  var num;
+  var R, P;
+  var res = [];
+  var alloc = [];
+  var max = [];
+  var c = 1;
+  var count = 0;
+  var index = 0;
+  var marked = [];
+  var need = [];
+  var available = [];
+  var safe = [];
+  var ul1;
+  var req = [];
+
+  function addInitialRes() {
+
+    var totalres = document.getElementById("totalres").value;
+    num = parseInt(totalres);
+    if (num <= 0) {
+      window.alert("Please enter valid input");
+      return;
+    }
+
+    R = num;
+    var resources = document.getElementById("resources");
+    resources.textContent = "";
+    for (var i = 0; i < num; i++) {
+      var card = document.createElement("div");
+      card.setAttribute("style", "width:250px;margin-right:50px;text-align:center;");
+      var p = document.createElement("div");
+      //p.setAttribute("style","width:100px;float:left;");
+      p.setAttribute("class", "input-group input-group-lg");
+      //p.textContent="Resource "+(i+1);
+      //card.appendChild(p);
+      var subDiv = document.createElement("div");
+      subDiv.setAttribute("class", "input-group-prepend");
+      var text = document.createElement("span");
+      text.setAttribute("class", "input-group-text");
+      text.setAttribute("id", "inputGroup-sizing-lg");
+      text.innerHTML = "Resource " + (i + 1);
+      var inp = document.createElement("input");
+      inp.setAttribute("id", "res-" + (i + 1));
+      //inp.setAttribute("style","width:100px;text-align:center;margin:auto;");
+      inp.setAttribute("class", "form-control");
+      inp.setAttribute("aria-lable", "Large");
+      inp.setAttribute("aria-describedby", "inputGroup-sizing-sm");
+      subDiv.appendChild(text);
+      p.appendChild(subDiv);
+      p.appendChild(inp);
+
+
+      card.appendChild(p);
+      resources.appendChild(card);
+    }
+
+    if (isNaN(num)) {
+
+      var input = document.getElementById("inputsection");
+      input.innerHTML = "";
+    }
+    else {
+      var input = document.getElementById("inputsection");
+      input.innerHTML = "";
+      var d1 = document.createElement("div");
+      d1.setAttribute("style", "margin-left:10px;float:left;");
+      var p1 = document.createElement("card");
+      p1.setAttribute("style", "margin-left:10px;float:left;");
+      p1.textContent = "Max Need: ";
+      d1.appendChild(p1);
+      for (var i = 0; i < num; i++) {
+        var card = document.createElement("div");
+        card.setAttribute("style", "width:90px;float:left;margin-right:50px;height:50px;");
+        var p = document.createElement("div");
+        p.setAttribute("class", "input-group input-group-sm");
+        var subDiv = document.createElement("div");
+        subDiv.setAttribute("class", "input-group-prepend");
+        var text = document.createElement("span");
+        text.setAttribute("class", "input-group-text");
+        text.setAttribute("id", "inputGroup-sizing-sm");
+        var inp1 = document.createElement("input");
+        inp1.setAttribute("id", "MPR" + (i + 1));
+        inp1.setAttribute("placeholder", "R-" + (i + 1));
+        inp1.setAttribute("class", "form-control");
+        inp1.setAttribute("aria-lable", "Small");
+        inp1.setAttribute("aria-describedby", "inputGroup-sizing-sm");
+
+        subDiv.appendChild(text);
+        p.appendChild(subDiv);
+        p.appendChild(inp1);
+        // inp1.setAttribute("style","width:50px;text-align:center;margin:auto;float:left;");
+        card.appendChild(inp1);
+        d1.appendChild(card);
+      }
+      input.appendChild(d1);
+      var d2 = document.createElement("div");
+      d1.setAttribute("style", "width:100%;margin-left:10px;float:left;");
+      var p2 = document.createElement("card");
+      p2.setAttribute("style", "margin-left:20px;float:left;");
+      p2.textContent = "Allocated:   ";
+      d2.appendChild(p2);
+      for (var i = 0; i < num; i++) {
+        var card = document.createElement("div");
+        card.setAttribute("style", "width:90px;float:left;margin-right:50px;height:50px;");
+        var p = document.createElement("div");
+        p.setAttribute("class", "input-group input-group-sm");
+        var subDiv = document.createElement("div");
+        subDiv.setAttribute("class", "input-group-prepend");
+        var text = document.createElement("span");
+        text.setAttribute("class", "input-group-text");
+        text.setAttribute("id", "inputGroup-sizing-sm")
+
+        var inp2 = document.createElement("input");
+        inp2.setAttribute("placeholder", "R-" + (i + 1));
+        inp2.setAttribute("id", "APR" + (i + 1));
+        // inp2.setAttribute("style","width:50px;text-align:center;margin:auto;float:left;");
+
+        inp2.setAttribute("class", "form-control");
+        inp2.setAttribute("aria-lable", "Small");
+        inp2.setAttribute("aria-describedby", "inputGroup-sizing-sm");
+
+        card.appendChild(inp2);
+        d2.appendChild(card);
+      }
+      input.appendChild(d2);
+      var but = document.createElement("button");
+      but.textContent = "ADD";
+      but.setAttribute("type", "button");
+      but.setAttribute("class", "btn btn-secondary");
+      but.setAttribute("onclick", "addToList()");
+      but.setAttribute("style", "margin:10px 0px");
+
+      card.appendChild(but);
+      console.log(num);
+    }
+  }
+
+
+  //function to add processes
+  function addToList() {
+    var temp = [];
+    for (var i = 0; i < num; i++) {
+      var inp = document.getElementById("MPR" + (i + 1)).value;
+
+      if (isNaN(parseInt(inp))) {
+        window.alert("Please enter valid inputs");
+        return;
+      }
+      if (isNaN(parseInt(inp))) {
+        window.alert("Please enter numeric value of R");
+        return;
+      }
+
+      temp.push(parseInt(inp));
+    }
+    max.push(temp);
+    var t = 0;
+    var temp1 = [];
+    for (var i = 0; i < num; i++) {
+      var inp1 = document.getElementById("APR" + (i + 1)).value;
+      if (isNaN(parseInt(inp1)) || (parseInt(inp1)) > max[index][i]) {
+        window.alert("Please enter valid inputs of resource " + (i + 1));
+        return;
+      }
+
+
+
+      temp1.push(parseInt(inp1));
+    }
+    alloc.push(temp1);
+
+
+    for (var i = 0; i < num; i++) {
+      document.getElementById("MPR" + (i + 1)).value = "";
+      document.getElementById("APR" + (i + 1)).value = "";
+    }
+    index = index + 1;
+    displayneed();
+    displayalloc();
+
+  }
+
+
+  function is_available(x) {
+    var flag = true;
+    for (var i = 0; i < num; i++) {
+      if (need[x][i] > available[i])
+        flag = false;
+    }
+    return flag;
+
+  }
+
+  function safe_sequence() {
+    for (var i = 0; i < index; i++) {
+      if (marked[i] == false) {
+        if (is_available(i)) {
+          console.log("Process " + (i + 1) + " has enough resources");
+          marked[i] = true;
+          for (j = 0; j < num; j++) {
+            available[j] += alloc[i][j];
+          }
+          var li = document.createElement("p");
+          console.log("Current resources available: " + available);
+          safe.push(i);
+          safe_sequence();
+          safe.pop();
+          marked[i] = false;
+          for (j = 0; j < num; j++) {
+            available[j] -= alloc[i][j];
+          }
+        }
+        else {
+          console.log("Process " + (i + 1) + " doesn't have enough resources");
+          console.log("Need: " + need[i]);
+          console.log("Current resources available: " + available);
+          continue;
+        }
+      }
+    }
+    if (safe.length == index) {
+      var output = document.getElementById("output");
+      if (count == 0) {
+        var br = document.createElement("br");
+        output.appendChild(br);
+        output.appendChild(br);
+        var d5 = document.createElement("div");
+        h = document.createElement("h5");
+        h.textContent = "Safe sequences are :";
+        d5.appendChild(h);
+        console.log("Safe sequences are :");
+        output.appendChild(d5);
+        var output2 = document.getElementById("output2");
+        var d6 = document.createElement("div");
+        h2 = document.createElement("h5");
+        h2.textContent = " OS will grant the request ";
+        output2.appendChild(h2);
+      }
+      count++;
+      var output = document.getElementById("output");
+      var d = document.createElement("div");
+      for (var i = 0; i < index; i++) {
+        var p1 = document.createElement("card");
+        p1.setAttribute("style", "margin-left:50px;");
+        p1.textContent = +(safe[i] + 1);
+        console.log("  " + (safe[i] + 1) + "  ");
+        d.appendChild(p1);
+      }
+      output.appendChild(d);
+
+    }
+    if (count == 0) {
+      var output = document.getElementById("output");
+      var div = document.createElement("div");
+      var br = document.createElement("br");
+      div.appendChild(br);
+      div.appendChild(br);
+      div.appendChild(br);
+      var p2 = document.createElement("h5");
+      p2.setAttribute("style", "float:left;margin-left:30px");
+      p2.textContent = "No safe sequence";
+      div.appendChild(p2);
+      output.appendChild(div);
+      var output2 = document.getElementById("output2");
+      var d6 = document.createElement("div");
+      h2 = document.createElement("h5");
+      h2.textContent = "!!!!!!OS will not grant the request!!!!! ";
+      output2.appendChild(h2);
+    }
+  }
+  function add() {
+    var process = parseInt(document.getElementById("PR").value);
+    for (var i = 0; i < num; i++) {
+      var inp3 = document.getElementById("R" + (i + 1)).value;
+      if (isNaN(parseInt(inp3)) || parseInt(inp3) < 0) {
+        window.alert("Please enter valid inputs");
+        return;
+      }
+      req.push(parseInt(inp3));
+    }
+    var j = process - 1;
+    if (process > index || process <= 0) {
+      window.alert("Please enter valid input: Entered process does not exists");
+      return;
+    }
+    console.log(j);
+    var x = 1, f = 1;
+    var output1 = document.getElementById("output1");
+    var br = document.createElement("br");
+    output1.appendChild(br);
+    output1.appendChild(br);
+
+    var c = document.createElement("h4");
+    c.textContent = "OUTPUT :";
+    c.setAttribute("style", "float:left;margin-left:20px;width:100%;");
+    output1.appendChild(c);
+    for (var i = 0; i < num; i++) {
+      if (req[i] > need[j][i]) {
+        var div = document.createElement("div");
+        var card = document.createElement("h5");
+        card.setAttribute("style", "float:left;margin-left:30px;");
+        card.textContent = "Process is requesting more resources than it's need:";
+        div.appendChild(card);
+        var cc = document.createElement("h5");
+        cc.setAttribute("style", "float:left;margin-left:30px;");
+        cc.textContent = "Need : " + need[j];
+        div.appendChild(cc);
+        var cc1 = document.createElement("h5");
+        cc1.setAttribute("style", "float:left;margin-left:30px;");
+        cc1.textContent = "Request : " + req;
+        div.appendChild(cc1);
+        output1.appendChild(div);
+        console.log("Process is requesting more resources than it's need");
+        f = 0;
+        break;
+      }
+    }
+    var x = 1;
+    if (f == 1) {
+      for (var i = 0; i < num; i++) {
+        if (req[i] > available[i]) {
+          var div1 = document.createElement("div");
+          div1.setAttribute("style", "width:100%;");
+          var card1 = document.createElement("h5");
+          card1.setAttribute("style", "float:left;margin-left:30px;");
+          card1.textContent = "Process  should wait. Resources are not available";
+          div1.appendChild(card1);
+          var cc1 = document.createElement("h5");
+          cc1.setAttribute("style", "float:left;margin-left:30px;");
+          cc1.textContent = "Available : " + available;
+          div1.appendChild(cc1);
+          var cc2 = document.createElement("h5");
+          cc2.setAttribute("style", "float:left;margin-left:30px;");
+          cc2.textContent = "Request : " + req;
+          div1.appendChild(cc2);
+          output1.appendChild(div1);
+          var br = document.createElement("br");
+          output1.appendChild(br);
+          output1.appendChild(br);
+          output1.appendChild(br);
+          console.log("Process  should wait. Resources are not available");
+          x = 0;
+          break;
+        }
+      }
+      if (x == 1) {
+        for (var i = 0; i < num; i++) {
+          available[i] -= req[i];
+          alloc[j][i] += req[i];
+          need[j][i] -= req[i];
+        }
+      }
+      safe_sequence();
+    }
+  }
+
+  function cleardata() {
+    marked = [];
+    need = [];
+    res = [];
+    available = [];
+    safe = [];
+    req = [];
+    var operation = document.getElementById("operations");
+    operation.innerHTML = "";
+    var output1 = document.getElementById("output1");
+    var output2 = document.getElementById("output2");
+    var output = document.getElementById("output");
+    output.innerHTML = "";
+    output1.innerHTML = "";
+    output2.innerHTML = "";
+  }
+  function clear_data() {
+    console.log("HII");
+    marked = [];
+    need = [];
+    res = [];
+    available = [];
+    req = [];
+    c = 1;
+    count = 0;
+    index = 0;
+    safe = [];
+    max = [];
+    alloc = [];
+    var resources = document.getElementById("resources");
+    resources.innerHTML = "";
+    var operation = document.getElementById("operations");
+    operation.innerHTML = "";
+    var output1 = document.getElementById("output1");
+    var output2 = document.getElementById("output2");
+    var output = document.getElementById("output");
+    output.innerHTML = "";
+    output1.innerHTML = "";
+    output2.innerHTML = "";
+    var input = document.getElementById("inputsection");
+    input.innerHTML = "";
+    var t = document.getElementById("table");
+    t.innerHTML = "";
+    var t1 = document.getElementById("totalres");
+    t1.value = "";
+
+  }
+  function banker() {
+    cleardata();
+    for (var i = 0; i < index; i++) {
+      marked.push(false);
+    }
+    for (var i = 0; i < index; i++) {
+      var temp = [];
+      for (j = 0; j < num; j++)
+        temp.push(max[i][j] - alloc[i][j]);
+      need.push(temp);
+    }
+    for (var i = 0; i < num; i++) {
+      var inp1 = document.getElementById("res-" + (i + 1)).value;
+      if (isNaN(inp1) || inp1 < 0) {
+        window.alert("Please enter valid instances of resource ");
+        return;
+      }
+      res.push(inp1);
+    }
+    for (var j = 0; j < num; j++) {
+      var s = 0;
+      for (var i = 0; i < index; i++) {
+        s += alloc[i][j];
+      }
+      available.push(res[j] - s);
+    }
+    var operation = document.getElementById("operations");
+    var d3 = document.createElement("div");
+    d3.setAttribute("style", "width:100%");
+    var card1 = document.createElement("div");
+    card1.setAttribute("style", "float:left;margin-right:50px;height:30px;");
+    var pr = document.createElement("div");
+    pr.textContent = "Enter Process whose requesting: ";
+    pr.setAttribute("style", "width:250px;float:left;margin-left:20px;")
+    card1.appendChild(pr);
+
+    var p3 = document.createElement("input");
+    p3.setAttribute("style", "width:100px;text-align:center;margin:auto;float:left;");
+    p3.setAttribute("id", "PR");
+    card1.appendChild(p3);
+    d3.appendChild(card1);
+    operation.appendChild(d3);
+    for (var i = 0; i < num; i++) {
+      var card = document.createElement("div");
+      //card.setAttribute("class","card");
+      card.setAttribute("style", "float:left;margin-right:50px;height:50px;");
+      var p = document.createElement("div");
+      p.setAttribute("style", "width:100px;float:left;");
+      p.textContent = "Resource " + (i + 1) + ":";
+      card.appendChild(p);
+      var inp = document.createElement("input");
+      inp.setAttribute("id", "R" + (i + 1));
+      inp.setAttribute("style", "width:50px;text-align:center;margin:auto;float:left;");
+      card.appendChild(inp);
+      d3.appendChild(card);
+    }
+    var but = document.createElement("button");
+    but.textContent = "continue";
+    but.setAttribute("type", "button");
+    but.setAttribute("class", "btn btn-success");
+    but.setAttribute("onclick", "add()");
+    // but.setAttribute("style","width:100px;text-align:center;margin:auto;float:left;");
+    operation.appendChild(d3);
+    operation.appendChild(but);
+  }
+
+  // Function to display Max Need Table
+  function displayneed() {
+    var heading = document.getElementById("heading");
+    heading.innerHTML = "";
+    var h = document.createElement("h5");
+    h.textContent = "Table For Maximum Need of Resources";
+    h.setAttribute("style", "text-align: center");
+    heading.appendChild(h);
+    var thead = document.getElementById("inp-head");
+    thead.innerHTML = "";
+    var tr = document.createElement("tr");
+    var td1 = document.createElement("td");
+    td1.textContent = "Process ID";
+    td1.setAttribute("style", "text-align: center");
+    tr.appendChild(td1);
+    for (var i = 0; i < num; i++) {
+      var tdi = document.createElement("td");
+      tdi.textContent = "R-" + (i + 1);
+      tdi.setAttribute("style", "text-align:center;");
+      tr.appendChild(tdi);
+    }
+    thead.appendChild(tr);
+
+    var table = document.getElementById("ptable");
+    table.innerHTML = "";
+    for (j = 0; j < index; j++) {
+      var trj = document.createElement("tr");
+      var td1 = document.createElement("td");
+      td1.textContent = "P" + (j + 1);
+      trj.appendChild(td1);
+      for (var i = 0; i < num; i++) {
+        var tdi = document.createElement("td");
+        tdi.textContent = max[j][i];
+        trj.appendChild(tdi);
+      }
+      table.appendChild(trj);
+    }
+
+  }
+  // Function to print Allocated Table
+  function displayalloc() {
+    var heading_alloc = document.getElementById("heading_alloc");
+    heading_alloc.innerHTML = "";
+    var h1 = document.createElement("h5");
+    h1.textContent = "Table For Allocated Resourses";
+    h1.setAttribute("style", "text-align: center");
+    heading_alloc.appendChild(h1);
+    var thead1 = document.getElementById("inp-head_alloc");
+    thead1.innerHTML = "";
+    var tr = document.createElement("tr");
+    var td1 = document.createElement("td");
+    td1.textContent = "Process ID";
+    td1.setAttribute("style", "text-align: center");
+    tr.appendChild(td1);
+    for (var i = 0; i < num; i++) {
+      var tdi = document.createElement("td");
+      tdi.textContent = "R-" + (i + 1);
+      tdi.setAttribute("style", "text-align:center;");
+      tr.appendChild(tdi);
+    }
+    thead1.appendChild(tr);
+
+    var table1 = document.getElementById("ptable_alloc");
+    table1.innerHTML = "";
+    for (j = 0; j < index; j++) {
+      var trj = document.createElement("tr");
+      var td1 = document.createElement("td");
+      td1.textContent = "P" + (j + 1);
+      trj.appendChild(td1);
+      for (var i = 0; i < num; i++) {
+        var tdi = document.createElement("td");
+        tdi.textContent = alloc[j][i];
+        trj.appendChild(tdi);
+      }
+      table1.appendChild(trj);
+    }
+  }
+
+
+</script>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <div class="logo">
+        <h1><a href="index.html">OS Mini Project</a></h1>
+        <h3>Group 14</h3>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="../../assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto " href="/index.html">Home</a></li>
+
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs Section ======= -->
+    <section class="inner-page" style="padding: 150px 150p; margin: 100px 50px;">
+
+
+      <div>
+        <h1> Banker's Algorithm Simulation</h1>
+      </div>
+
+      <!-- <div style = "width: 100%;;margin-left:10px;text-align:left;">
+          <div style="float:left; margin-right:20px;">Number of Resources:</div>
+          <input  id = "totalres" onkeyup="addInitialRes()" type="text">
+           <button class="btn btn-primary btn-success" style ="float:right;margin-right:20px;" onclick="clear_data()"  >Clear Data</button>
+        </div> -->
+      <p >
+        The banker’s algorithm is a resource allocation and deadlock avoidance algorithm that tests for safety by
+        simulating the allocation for predetermined maximum possible amounts of all resources, then makes an “safe-state”
+        check to test for possible activities, before deciding whether allocation should be allowed to continue.
+      </p>
+      <div class="input-group input-group-lg" style="width: 350px; margin-left: 10px;padding-bottom: 20px">
+        <div class="input-group-prepend">
+          <span class="input-group-text" id="inputGroup-sizing-lg">Number of Resources:</span>
+        </div>
+        <input id="totalres" type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm"
+          onkeyup="addInitialRes()">
+
+      </div>
+
+      <!-- <button class="btn btn-primary btn-danger" style="margin: 10px 10px;" onclick="clear_data()">Clear Data</button> -->
+
+      <div id="resources" style="margin-left:10px;"></div>
+      <div id="table" class="container" style="text-align:center; ">
+        <div>
+
+          <div id="heading"></div>
+          <br>
+          <table id="tab" class="table table-striped table-bordered  "
+            style="border-color: black; border-width: 1px; bgcolor: white; width: 600px;display: inline-table;">
+            <thead id="inp-head">
+            </thead>
+            <tbody id="ptable">
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <div id="heading_alloc"></div>
+          <br>
+          <table id="tab_alloc" class="table table-striped table-bordered  "
+            style="border-color: black; border-width: 1px; bgcolor: white; width: 600px;display: inline-table;">
+            <thead id="inp-head_alloc">
+            </thead>
+            <tbody id="ptable_alloc">
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <br><br />
+      <div id="inputsection" style="text-align:center">
+      </div>
+      <div id="firs_alloc" style="margin-left:10px">
+
+      </div>
+      <div id="run" style="text-align:center;">
+        <button class="btn btn-outline-success" style="margin:50px 0px" onclick="banker()">Run</button>
+      </div>
+      <div id="operations">
+      </div>
+      <div id="output1" style="text-align:center">
+      </div>
+      <div id="output" style="text-align:center">
+
+      </div>
+      <div id="output2" style="text-align:center">
+
+      </div>
+
+    </section>
+
+
+
+
+  </main><!-- End #main -->
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="../../assets/vendor/purecounter/purecounter.js"></script>
+  <script src="../../assets/vendor/aos/aos.js"></script>
+  <script src="../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../../assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="../../assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="../../assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="../../assets/js/main.js"></script>
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+  integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+  integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+</html>

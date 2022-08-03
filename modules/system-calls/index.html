@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Index - CPU Scheduling</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="../../../../assets/img/favicons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/img/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/img/favicons/favicon-16x16.png">
+  <link rel="manifest" href="../../assets/img/favicons/site.webmanifest">
+  <link rel="mask-icon" href="../../assets/img/favicons/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="../../assets/img/favicons/favicon.ico">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-config" content="../../assets/img/favicons/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- Google Fonts -->
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../../assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../../assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
+  <link href="../../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../../assets/vendor/remixicon/remixicon.css" rel="stylesheet">
+  <link href="../../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="./../../assets/css/style.css" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Vesperr - v4.7.0
+  * Template URL: https://bootstrapmade.com/vesperr-free-bootstrap-template/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+</head>
+
+<style>
+  #about {
+    margin: auto;
+  }
+
+  .btn-get-started {
+    font-family: "Raleway", sans-serif;
+    font-weight: 500;
+    font-size: 16px;
+    letter-spacing: 1px;
+    display: inline-block;
+    padding: 10px 30px;
+    border-radius: 50px;
+    transition: 0.5s;
+    color: #3498db;
+    border: 2px solid #3498db;
+  }
+
+  .btn-get-started:hover {
+    background: #3498db;
+    color: #fff;
+  }
+
+  #header-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+</style>
+
+<body>
+
+  <!-- ======= Header ======= -->
+  <header id="header" class="fixed-top d-flex align-items-center">
+    <div class="container d-flex align-items-center justify-content-between">
+
+      <div class="logo">
+        <h1><a href="/index.html">OS Mini Project</a></h1>
+        <h3>Group 14</h3>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="index.html"><img src="../../assets/img/logo.png" alt="" class="img-fluid"></a>-->
+      </div>
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a class="nav-link scrollto " href="/index.html">Home</a></li>
+
+      </nav><!-- .navbar -->
+
+    </div>
+  </header><!-- End Header -->
+
+  <main id="main">
+
+    <!-- ======= Breadcrumbs Section ======= -->
+    <section class="inner-page">
+      <div class="container">
+
+        <br><br><br>
+        <div class="flex-container">
+          <header>
+            <div id="header-button">
+              <h1>System Calls</h1>
+            </div>
+
+
+          </header>
+        </div>
+
+        <p>
+          A system call is the programmatic way in which a computer program requests a service from the kernel of the
+          operating system it is executed on. In other words, a system call is a way for programs to interact with the operating system.
+          A computer program makes a system call when it makes a request to the operating system’s kernel. System call
+          provides the services of the operating system to the user programs via Application Program Interface(API). It
+          provides an interface between a process and operating system to allow user-level processes to request services
+          of the operating system. System calls are the only entry points into the kernel system. All programs needing
+          resources must use system calls
+        </p>
+
+        <p><br>
+        <h3>1. create()</h3> This system call is used to create a new file. It creates a new file on disk,
+        creates a file table entry, then sets the first unused file descriptor to point to the table file
+        entry and then return it (or -1 upon failure).
+        <br>
+        <br>
+        <h3>2. open()</h3> This system call can be used to open a file, for either reading or writing
+        purposes. The working principle in the OS is similar to that of create() , except for the
+        first step. Instead of creating a file on the disk , it first reads the file from the disk.
+        <br />
+        <br>
+        <h3>3. close()</h3> This system call takes in a file descriptor (The ones created by the above two
+        commands) and then closes the file which is pointed at by this file descriptor.
+        <br />
+        <br>
+        <h3>4. read()</h3> This system call reads a certain number of bytes (passed as parameters) into
+        the ‘buf’ memory area. It updates the access time for the file as well.
+        <br />
+        <br>
+        <h3>5. write()</h3> This system call takes a file descriptor and a buffer and writes a certain number
+        of bytes ( all 3 passed as parameters ) to the file associated with this file descriptor.
+        <br />
+        <br>
+        <h3>6. lseek()</h3> This system call is used to shift the location of the pointer of a file descriptor.
+        This location can be set in either relative terms or absolute terms.
+        <br />
+        <br>
+        <h3>7. dup()</h3> This system call creates a copy of the file descriptor passed to it. This copy is
+        exactly the same as the original. Both of them can be used interchangeably.
+        <br />
+        <br>
+        <h3>8. link()</h3> This system call creates a new directory entry for an existing file.
+        <br>
+        <br>
+        <h3>9. unlink()</h3> As the name suggests, this system does the opposite of what link() does. It
+        simply removes the directory entry for an existing file
+        <br />
+        <br>
+        <h3>10. access()</h3> This system call checks whether or not the calling process can access a
+        specific file or not (Passed to the call by as a parameter)
+        <br />
+        <br>
+        <h3>11. chmod()</h3> This system call is used to change the file’s mode bits (These are the bits
+        which specify the access control for the file Who can do what kind of changes to the
+        file) It takes in the path of the file whose permissions we want to change.
+        <br />
+        <br>
+        <h3>12. chown()</h3> This system call is used to change the owner and/or the group of the file
+        (passed through a path or a file descriptor). Only a privileged process can change the
+        <br />
+        ownership of a file.
+        <br />
+        <br>
+        <h3>13. unmask()</h3> This system call sets the calling process's file mode creation mask (umask)
+        to mask & 0777. Basically, it helps us to define the default protection/access modes for
+        any new files that we create.
+        <br />
+        <br>
+        <h3>14. ioctl()</h3> This system call manipulates the underlying device parameters of special files.
+        For example, in Linux, many characteristics of character special files (The terminal is
+        one such entity), can be controlled using requests made through this system call.
+        <br />
+        <br>
+        <h3>15. execl()</h3> This system call is used to launch/execute a program/file. It works by overriding
+        the current process image with one of that which is launched.
+        <br />
+        <br>
+        <h3>16. fork()</h3> This command is used for making child processes that run parallely along with
+        the process that created them. After a new process is created, both processes execute
+        the next instruction following the fork system call.
+        <br />
+        <br>
+        <h3>17. wait()</h3> This system call blocks the parent process until one of its child processes exits,
+        or an exit signal is received. After the child process terminates, the parent can continue
+        with its own execution.
+        <br />
+        <br>
+        <h3>18. exit()</h3> This system call is used to terminate a process normally. When this system call is
+        made. Any file descriptors related to the file in questions are closed and the Children of
+        this process are inherited by process 1 , init.
+        <br />
+        <br>
+        <h3>19. chdir()</h3> This system call is used to change the current working directory.
+        <br />
+        <br>
+        <h3>20. alarm()</h3> This system call causes the program to generate a SIGALRM signal for the
+        process after a certain number of seconds have elapsed.
+        <br />
+        <br>
+        <h3>21. kill()</h3> This command kills the process group of the caller
+        <br />
+        <br>
+        <h3>22. signal()</h3> This system call installs a new signal handler for the signal with number
+        signum.
+        <br />
+        <br>
+        <h3>23. getppid()</h3> This system call returns the process ID (PID) of the parent of the calling
+        process.
+        <br />
+        <br>
+        <h3>24. getpid()</h3> This system call returns the process ID (PID) of the calling process.
+        <br />
+        <br>
+        <h3>25. getgid()</h3> This system call returns the real Group ID of the current process.
+        <br />
+        <br>
+        <h3>26. geteuid()</h3> This system call returns the effective user ID of the current process.
+        <br />
+        <br>
+        <h3>27. getuid()</h3> This system call return the REAL user ID of the current process.
+        </p>
+      </div>
+    </section>
+
+
+
+
+
+
+
+  </main><!-- End #main -->
+
+
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+  <script src="../../assets/vendor/purecounter/purecounter.js"></script>
+  <script src="../../assets/vendor/aos/aos.js"></script>
+  <script src="../../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../../assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="../../assets/vendor/swiper/swiper-bundle.min.js"></script>
+  <script src="../../assets/vendor/php-email-form/validate.js"></script>
+
+  <!-- Template Main JS File -->
+  <script src="../../assets/js/main.js"></script>
+
+</body>
+
+</html>
